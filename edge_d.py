@@ -1,5 +1,5 @@
 #%%
-from ast import increment_lineno
+
 import cv2
 import matplotlib
 import numpy as np
@@ -36,28 +36,28 @@ cl1 = clahe.apply(bi1)
 # # k = cv2.waitKey(0)
 
 
-# P.Hough Transform
-minLineLength = 250
-maxLineGap = 10
-lineP = cv2.HoughLinesP(edges_2, 1,np.pi/180,10,minLineLength,maxLineGap)
-
-if lineP is not None:
-  for i in range(0, len(lineP)):
-    l = lineP[i][0]
-    cv2.line(cedge, (l[0], l[1]), (l[2], l[3]), (255,0,0),4)
-# plt.imshow( cedge)
-# plt.show()
-cv2.imshow("Detected Lines (in red) - Probabilistic Line Transform", cedge)
-k = cv2.waitKey(0)
-
-# edges_2 = cv2.Canny (cl1,75,150,apertureSize=3)
-# cedge = np.copy(img_1)
-# lineP = cv2.HoughLinesP(edges_2, 1,np.pi/180,10,minLineLength=100,maxLineGap=5)
+# # P.Hough Transform
+# minLineLength = 250
+# maxLineGap = 10
+# lineP = cv2.HoughLinesP(edges_2, 1,np.pi/180,10,minLineLength,maxLineGap)
 
 # if lineP is not None:
 #   for i in range(0, len(lineP)):
 #     l = lineP[i][0]
 #     cv2.line(cedge, (l[0], l[1]), (l[2], l[3]), (255,0,0),4)
-# plt.imshow( cedge)
-# plt.show()
+# # plt.imshow( cedge)
+# # plt.show()
+# cv2.imshow("Detected Lines (in red) - Probabilistic Line Transform", cedge)
+# k = cv2.waitKey(0)
+
+edges_2 = cv2.Canny (cl1,75,150,apertureSize=3)
+cedge = np.copy(img_1)
+lineP = cv2.HoughLinesP(edges_2, 1,np.pi/180,10,minLineLength=100,maxLineGap=5)
+
+if lineP is not None:
+  for i in range(0, len(lineP)):
+    l = lineP[i][0]
+    cv2.line(cedge, (l[0], l[1]), (l[2], l[3]), (255,0,0),4)
+plt.imshow( cedge)
+plt.show()
 # %%

@@ -7,9 +7,9 @@ import skimage.viewer
 import matplotlib.pyplot as plt
 import ipympl
 #%%
-img = cv2.imread("C:/1. Documents_220111/Duke/1. BTL/Data/220218_Zach/Images_with_less_noise_and_gradient/B-width-SGL-20220218-142926 (5).jpg",0)
+#img = cv2.imread("C:/1. Documents_220111/Duke/1. BTL/Data/220218_Zach/Images_with_less_noise_and_gradient/B-width-SGL-20220218-142926 (5).jpg",0)
 #img = cv2.imread("C:/1. Documents_220111/Duke/1. BTL/Data/220218_Zach/Images_with_less_noise_and_gradient/B-depth-SGL-20220218-142518 (2).jpg",1)
-#img = cv2.imread("C:/1. Documents_220111/Duke/1. BTL/Data/220218_Zach/Images_with_less_noise_and_gradient/capture.jpg",1)
+img = cv2.imread("C:/1. Documents_220111/Duke/1. BTL/Data/220302/220302/20220302-154133/uniform-075.jpg",1)
 
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
@@ -70,7 +70,7 @@ k = cv2.waitKey(0)
 
 dst = cv2.cornerHarris(gray,2,3,0.04)
 dst = cv2.dilate(dst,None)
-ret, dst = cv2.threshold(dst,0.01*dst.max(),255,0)
+ret, dst = cv2.threshold(dst,0.05*dst.max(),255,0)
 dst = np.uint8(dst)
 
 # find centroids
